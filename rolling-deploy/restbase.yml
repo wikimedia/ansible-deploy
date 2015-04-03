@@ -1,0 +1,18 @@
+---
+# This playbook does a rolling update for all Cassandra nodes serially (one at a time).
+# Change the value of serial: to adjust the number of server to be updated.
+
+# Execute with: ansible-playbook -f6 restbase-restart.yml
+
+- hosts: restbase
+  #user: root
+  serial: 1
+
+  tasks:
+  - name: check the time
+    shell: date
+
+  # These tasks run after the roles:
+  post_tasks:
+  - name: Wait for cassandra to come up
+    wait_for: host={{ inventory_hostname }} port=9042 state=started timeout=180
