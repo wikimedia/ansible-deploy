@@ -1,0 +1,30 @@
+---
+# This playbook does a rolling update for all Cassandra nodes serially (one at a time).
+# Change the value of serial: to adjust the number of server to be updated.
+
+# Execute with: ansible-playbook -f6 restbase-restart.yml
+
+- hosts: restbase-staging
+  max_fail_percentage: 20
+  sudo: yes
+  serial: 1
+
+  tasks:
+  #- name: remove the old deploy checkout
+  #- file:  path=/srv/deployment/restbase/deploy state=absent
+
+  - name: check out the deploy repo
+    git:
+      repo: https://gerrit.wikimedia.org/r/mediawiki/services/restbase/deploy 
+      dest: /srv/deployment/restbase/deploy
+      version: master
+      force: true
+
+  handlers:
+  - name: restart restbase
+    service: name=restbase state=restarted
+
+  # These tasks run after the roles:
+  post_tasks:
+  - name: Wait for restbase to come up
+    wait_for: host={{ inventory_hostname }} port=7231 state=started timeout=180
