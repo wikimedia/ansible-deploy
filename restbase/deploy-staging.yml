@@ -10,8 +10,14 @@
   serial: 1
 
   tasks:
-  #- name: remove the old deploy checkout
-  #- file:  path=/srv/deployment/restbase/deploy state=absent
+  - name: check if the deploy repo is pointing to tin
+    shell: grep -c tin.eqiad /srv/deployment/restbase/deploy/.git/config || exit 0
+    register: repo_check
+    ignore_errors: true
+
+  - name: remove the old deploy checkout
+    file:  path=/srv/deployment/restbase/deploy state=absent
+    when: repo_check.stdout != "0"
 
   - name: check out the deploy repo
     git:
