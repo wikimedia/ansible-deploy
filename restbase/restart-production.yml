@@ -1,0 +1,19 @@
+---
+# This playbook does a rolling restart of all restbase nodes, and checks their
+# availability before proceeding.
+
+# Execute with: ansible-playbook -i hosts restbase/restart-production.yml
+
+- hosts: restbase
+  max_fail_percentage: 20
+  sudo: yes
+  serial: 1
+
+  tasks:
+  - name: restart restbase
+    service: name=restbase state=restarted
+
+  # These tasks run after the roles:
+  post_tasks:
+  - name: wait for restbase to come up
+    wait_for: host={{ inventory_hostname }} port=7231 state=started timeout=180

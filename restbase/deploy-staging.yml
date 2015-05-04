@@ -1,8 +1,9 @@
 ---
-# This playbook does a rolling update for all Cassandra nodes serially (one at a time).
-# Change the value of serial: to adjust the number of server to be updated.
+# This playbook performs a rolling deploy to the staging cluster (cerium,
+# praseodymium, xenon). After restarting each node, it waits for the node to
+# become available.
 
-# Execute with: ansible-playbook -f6 restbase-restart.yml
+# Execute with: ansible-playbook -i hosts restbase/deploy-staging.yml
 
 - hosts: restbase-staging
   max_fail_percentage: 20
@@ -32,5 +33,5 @@
 
   # These tasks run after the roles:
   post_tasks:
-  - name: Wait for restbase to come up
+  - name: wait for restbase to come up
     wait_for: host={{ inventory_hostname }} port=7231 state=started timeout=180
