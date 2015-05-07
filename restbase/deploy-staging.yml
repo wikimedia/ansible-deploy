@@ -24,7 +24,7 @@
     git:
       repo: https://gerrit.wikimedia.org/r/mediawiki/services/restbase/deploy 
       dest: /srv/deployment/restbase/deploy
-      version: master
+      version: origin/master
       force: true
 
   handlers:
