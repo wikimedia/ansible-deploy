@@ -6,20 +6,14 @@
 # Execute with: ansible-playbook -i hosts restbase/deploy-staging.yml
 
 - hosts: restbase-staging
-  max_fail_percentage: 20
+  # Stop if more than 20% of boxes fail
+  max_fail_percentage: 19
+  # Run commands on node with sudo
   sudo: yes
+  # one at a time
   serial: 1
 
   tasks:
-  - name: check if the deploy repo is pointing to tin
-    shell: grep -c tin.eqiad /srv/deployment/restbase/deploy/.git/config || exit 0
-    register: repo_check
-    ignore_errors: true
-
-  - name: remove the old deploy checkout
-    file:  path=/srv/deployment/restbase/deploy state=absent
-    when: repo_check.stdout != "0"
-
   - name: check out the deploy repo
     git:
       repo: https://gerrit.wikimedia.org/r/mediawiki/services/restbase/deploy 
@@ -28,10 +22,10 @@
       force: true
 
   handlers:
+  # Only executed if the git checkout changed
   - name: restart restbase
     service: name=restbase state=restarted
 
-  # These tasks run after the roles:
   post_tasks:
   - name: wait for restbase to come up
     wait_for: host={{ inventory_hostname }} port=7231 state=started timeout=180
