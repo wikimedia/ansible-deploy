@@ -1,0 +1,16 @@
+---
+- hosts: restbase
+  # No need for facts for basic deploys
+  gather_facts: false
+  # Stop if more than 10% of boxes fail
+  max_fail_percentage: "{{max_fail_percentage|default(10)}}"
+  # Run commands on node with sudo
+  sudo: yes
+  # One at a time
+  serial: 1
+
+  tasks:
+    - include: tasks/deploy.yml
+
+    - include: tasks/restart.yml
+      when: deploy.changed

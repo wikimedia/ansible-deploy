@@ -1,7 +1,0 @@
-[restbase]
-restbase100[1:6].eqiad.wmnet
-
-[restbase-staging]
-xenon.eqiad.wmnet
-praseodymium.eqiad.wmnet
-cerium.eqiad.wmnet

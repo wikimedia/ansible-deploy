@@ -1,0 +1,2 @@
+- include: ../tasks/restart.yml
+- include: ../tasks/check.yml

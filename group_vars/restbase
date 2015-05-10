@@ -1,0 +1,2 @@
+# This is where we parametrize the restbase role
+restbase_version: origin/master

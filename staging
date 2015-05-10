@@ -1,0 +1,10 @@
+[eqiad:children]
+eqiad-restbase
+
+[restbase:children]
+eqiad-restbase
+
+[eqiad-restbase]
+xenon.eqiad.wmnet
+praseodymium.eqiad.wmnet
+cerium.eqiad.wmnet

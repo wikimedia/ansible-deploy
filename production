@@ -1,0 +1,8 @@
+[eqiad:children]
+eqiad-restbase
+
+[restbase:children]
+eqiad-restbase
+
+[eqiad-restbase]
+restbase100[1:6].eqiad.wmnet

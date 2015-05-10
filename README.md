@@ -1,60 +1,72 @@
 # Ansible experiments
 
-## Simple rolling deployment / restart scripts for restbase
+## Ansible deploy utilities for RESTBase and others
 
-This runs a command on each of the hosts, then checks for a port to become
-available:
+Examples:
 
 Test:
 ```bash
-ansible-playbook -i hosts restbase/deploy-staging.yml --check
+ansible-playbook -i staging roles/restbase/deploy.yml --check
 ```
 To run this for real:
 ```bash
-ansible-playbook -i hosts restbase/deploy-staging.yml
+ansible-playbook -i staging roles/restbase/deploy.yml
 
-PLAY [restbase-staging]
-*******************************************************
+PLAY [restbase]
+*************************************************************** 
 
-GATHERING FACTS
-***************************************************************
+TASK: [check out the deploy repo]
+********************************************* 
+changed: [cerium.eqiad.wmnet]
+
+TASK: [restart restbase]
+****************************************************** 
+changed: [cerium.eqiad.wmnet]
+
+TASK: [check port 7231]
+******************************************************* 
+ok: [cerium.eqiad.wmnet]
+
+TASK: [wait 10s for LVS]
+****************************************************** 
+ok: [cerium.eqiad.wmnet]
+
+TASK: [check out the deploy repo]
+********************************************* 
+changed: [praseodymium.eqiad.wmnet]
+
+TASK: [restart restbase]
+****************************************************** 
+changed: [praseodymium.eqiad.wmnet]
+
+TASK: [check port 7231]
+******************************************************* 
+ok: [praseodymium.eqiad.wmnet]
+
+TASK: [wait 10s for LVS]
+****************************************************** 
+ok: [praseodymium.eqiad.wmnet]
+
+TASK: [check out the deploy repo]
+********************************************* 
+changed: [xenon.eqiad.wmnet]
+
+TASK: [restart restbase]
+****************************************************** 
+changed: [xenon.eqiad.wmnet]
+
+TASK: [check port 7231]
+******************************************************* 
 ok: [xenon.eqiad.wmnet]
-ok: [cerium.eqiad.wmnet]
-ok: [praseodymium.eqiad.wmnet]
 
-TASK: [check out the deploy repo]
-*********************************************
-ok: [cerium.eqiad.wmnet]
-
-TASK: [wait for restbase to come up]
-******************************************
-ok: [cerium.eqiad.wmnet]
-
-TASK: [check out the deploy repo]
-*********************************************
-ok: [praseodymium.eqiad.wmnet]
-
-TASK: [wait for restbase to come up]
-******************************************
-ok: [praseodymium.eqiad.wmnet]
-
-TASK: [check out the deploy repo]
-*********************************************
-ok: [xenon.eqiad.wmnet]
-
-TASK: [wait for restbase to come up]
-******************************************
+TASK: [wait 10s for LVS]
+****************************************************** 
 ok: [xenon.eqiad.wmnet]
 
 PLAY RECAP
-********************************************************************
-cerium.eqiad.wmnet         : ok=3    changed=0    unreachable=0    failed=0
-praseodymium.eqiad.wmnet   : ok=3    changed=0    unreachable=0    failed=0
-xenon.eqiad.wmnet          : ok=3    changed=0    unreachable=0    failed=0
-
-
-real    0m15.613s
-user    0m0.272s
-sys     0m0.084s
+******************************************************************** 
+cerium.eqiad.wmnet         : ok=4    changed=2    unreachable=0    failed=0   
+praseodymium.eqiad.wmnet   : ok=4    changed=2    unreachable=0    failed=0   
+xenon.eqiad.wmnet          : ok=4    changed=2    unreachable=0    failed=0
 ```
 

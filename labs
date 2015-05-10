@@ -1,0 +1,9 @@
+[eqiad:children]
+eqiad-restbase
+
+[restbase:children]
+eqiad-restbase
+
+[eqiad-restbase]
+deployment-restbase01.eqiad.wmflabs
+deployment-restbase02.eqiad.wmflabs

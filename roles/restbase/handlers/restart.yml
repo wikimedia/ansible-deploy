@@ -1,0 +1,8 @@
+- name: restart restbase
+  service: name=restbase state=restarted
+  notify: check
+
+- include: check.yml
+
+- name: wait 10s for LVS
+  wait_for: timeout=10
