@@ -1,0 +1,12 @@
+- hosts: all
+  sudo: true
+
+  roles:
+    - ../ipv6_default_route
+  tasks:
+    - action: setup
+    - include: tasks/main.yml
+      vars:
+        docker_ipv6_subnet: "{{ansible_all_ipv6_addresses[0][:-2]}}:1000::/80"
+        # The repository to install docker.io from
+        unstable_repository: deb http://ftp.debian.org/debian/ unstable main non-free contrib

@@ -1,0 +1,8 @@
+- name: add an auto-derived ipv6 address if none found
+  # derive a https://en.wikipedia.org/wiki/Unique_local_address, and add it
+  # on the ipv4 default interface
+  command: ip -6 addr add 2001:{{ansible_all_ipv6_addresses[0][11:25]}}::/64 dev {{ansible_default_ipv4.interface}}
+  when: ansible_all_ipv6_addresses[0][0:4] == 'fe80'
+
+# TODO: Add routes to other hosts, or set up a proper default route
+# Manual version: ip route add 2001:3eff:fe9f:cb38::/64 via 2001:3eff:fe9f:cb38:: dev eth0

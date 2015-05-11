@@ -1,0 +1,4 @@
+
+# The repository to install docker.io from
+unstable_repository: deb http://ftp.debian.org/debian/ unstable main non-free contrib
+

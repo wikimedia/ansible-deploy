@@ -1,0 +1,27 @@
+- name: add unstable repository
+  apt_repository: repo='{{unstable_repository}}' state=present
+
+- name: install docker.io
+  apt: name=docker.io state=present
+
+- name: update /etc/default/docker
+  template: src=templates/default_docker.j2 dest=/etc/default/docker
+  register: docker_default_result
+
+- name: restart docker
+  service: name=docker state=restarted
+  when: docker_default_result.changed
+
+- name: set up network forwarding for /80 docker subnet
+  command: ip -6 route add {{docker_ipv6_subnet}} dev docker0
+  when: docker_default_result.changed
+
+- name: enable v6 forwarding, default
+  sysctl: name=net.ipv6.conf.default.forwarding value=1
+
+- name: enable v6 forwarding, all
+  sysctl: name=net.ipv6.conf.all.forwarding value=1
+
+# Finally, clean up
+- name: remove unstable repository
+  apt_repository: repo='{{unstable_repository}}' state=absent
