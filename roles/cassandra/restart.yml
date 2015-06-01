@@ -1,0 +1,15 @@
+---
+# This playbook does a rolling restart of all restbase cassandra nodes, and
+# checks their availability before proceeding.
+
+# Execute with: ansible-playbook -i staging roles/cassandra/restart.yml
+
+- hosts: restbase
+  # No need for facts for basic deploys
+  gather_facts: false
+  max_fail_percentage: 10
+  sudo: yes
+  serial: 1
+
+  tasks:
+    - include: tasks/restart.yml

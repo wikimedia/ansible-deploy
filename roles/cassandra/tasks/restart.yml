@@ -1,0 +1,7 @@
+- name: restart cassandra
+  service: name=cassandra state=restarted
+
+- include: check.yml
+
+- name: wait 15s for clients to reconnect
+  wait_for: timeout=15

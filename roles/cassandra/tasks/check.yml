@@ -1,0 +1,2 @@
+- name: check port 9042
+  wait_for: host={{ inventory_hostname }} port=9042 state=started timeout=200
