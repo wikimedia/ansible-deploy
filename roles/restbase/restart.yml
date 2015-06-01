@@ -2,7 +2,7 @@
 # This playbook does a rolling restart of all restbase nodes, and checks their
 # availability before proceeding.
 
-# Execute with: ansible-playbook -i hosts restbase/restart-production.yml
+# Execute with: ansible-playbook -i staging roles/restbase/restart.yml
 
 - hosts: restbase
   # No need for facts for basic deploys
