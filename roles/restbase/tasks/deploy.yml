@@ -3,5 +3,6 @@
   git:
     repo: https://gerrit.wikimedia.org/r/mediawiki/services/restbase/deploy 
     dest: /srv/deployment/restbase/deploy
+    track_submodules: no
     version: "{{restbase_version|default('origin/master')}}"
     force: true

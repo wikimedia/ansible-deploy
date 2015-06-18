@@ -1,6 +1,8 @@
-# Ansible experiments
+# Ansible deploy utilities for RESTBase and others
 
-## Ansible deploy utilities for RESTBase and others
+You'll need Ansible 1.8+. Debian currently only provides 1.7, so you'll need
+to install from [the
+PPA](http://docs.ansible.com/intro_installation.html#latest-releases-via-apt-ubuntu), [pip, git or the tarball](http://docs.ansible.com/intro_installation.html).
 
 Examples:
 
