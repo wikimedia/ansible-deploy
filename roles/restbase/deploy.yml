@@ -1,16 +1,18 @@
 ---
 - hosts: restbase
-  # No need for facts for basic deploys
+  # No need for dynamic host facts in basic deploys
   gather_facts: false
   # Stop if more than 10% of boxes fail
   max_fail_percentage: "{{max_fail_percentage|default(10)}}"
   # Run commands on node with sudo
   sudo: yes
-  # One at a time
+  # One at a time; could also use percentages like "10%"
+  # See https://docs.ansible.com/playbooks_delegation.html
   serial: 1
 
   tasks:
     - include: tasks/deploy.yml
 
     - include: tasks/restart.yml
+      # Only restart if the code actually changed
       when: deploy.changed
