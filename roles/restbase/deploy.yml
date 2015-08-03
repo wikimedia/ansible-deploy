@@ -10,9 +10,21 @@
   # See https://docs.ansible.com/playbooks_delegation.html
   serial: 1
 
+  #vars_files:
+  #  - /path/to/secret/vars
+
   tasks:
     - include: tasks/deploy.yml
 
+    - template: 
+        src: templates/config.yaml.j2
+        dest: /etc/restbase/config.yaml
+        owner: root 
+        group: restbase 
+        mode: '0640'
+        register: config
+
     - include: tasks/restart.yml
       # Only restart if the code actually changed
-      when: deploy.changed
+      when: deploy.changed or config.changed
+
