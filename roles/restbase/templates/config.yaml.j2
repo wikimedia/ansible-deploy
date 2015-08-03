@@ -143,7 +143,12 @@ templates:
           - name: action
             type: file
             options:
-              apiURI: http://{domain}/w/api.php
+              apiRequest:
+                method: post
+                uri: '{$.default_uri}'
+                headers:
+                  host: '{$.request.params.domain}'
+                body: '{$.request.body}'
 
       /{module:graphoid}:
         x-modules:
@@ -157,6 +162,7 @@ templates:
                     backend_request:
                       # Default value: http://graphoid.svc.eqiad.wmnet:19000
                       uri: {{graphoid_host_port}}/{domain}/v1/png/{title}/{revision}/{graph_id}
+                      body: '{$.request.body}'
 
   wp-default-1.0.0: &wp/default/1.0.0
     x-subspecs:
