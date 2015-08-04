@@ -1,9 +1,15 @@
+[labs:children]
+labs_eqiad
+
 [eqiad:children]
-eqiad-restbase
+labs_eqiad
+
+[labs_eqiad:children]
+labs_eqiad_restbase
 
 [restbase:children]
-eqiad-restbase
+labs_eqiad_restbase
 
-[eqiad-restbase]
+[labs_eqiad_restbase]
 deployment-restbase01.eqiad.wmflabs
 deployment-restbase02.eqiad.wmflabs

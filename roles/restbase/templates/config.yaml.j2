@@ -4,24 +4,6 @@ info:
   name: restbase
 
 
-# Log error messages and gracefully restart a worker if v8 reports using more
-# heap (note: not RSS).
-worker_heap_limit_mb: 300
-
-logging:
-  name: restbase
-  level: {{restbase_logging_level}}
-  streams:
-  # XXX: Use gelf-stream -> logstash
-  - type: gelf
-    host: {{logstash_host}}
-    port: {{logstash_port}}
-
-# StatsD metrics collection
-metrics:
-  type: statsd # default, but lets be explicit
-  host: {{statsd_host}}
-  port: {{statsd_port}}
 
 # Swagger spec templates, referenced using yaml references in the spec section
 # below.
@@ -939,3 +921,23 @@ services:
       spec: *spec
       salt: {{salt_key}}
       default_page_size: {{restbase_page_size}}
+
+# Log error messages and gracefully restart a worker if v8 reports using more
+# heap (note: not RSS).
+worker_heap_limit_mb: 300
+
+logging:
+  name: {{cluster}}
+  level: {{restbase_logging_level}}
+  streams:
+  # XXX: Use gelf-stream -> logstash
+  - type: gelf
+    host: {{logstash_host}}
+    port: {{logstash_port}}
+
+# StatsD metrics collection
+metrics:
+  name: {{cluster}}
+  type: statsd # default, but lets be explicit
+  host: {{statsd_host}}
+  port: {{statsd_port}}

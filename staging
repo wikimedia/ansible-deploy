@@ -1,10 +1,16 @@
+[staging:children]
+staging_eqiad
+
 [eqiad:children]
-eqiad-restbase
+staging_eqiad
+
+[staging_eqiad:children]
+staging_eqiad_restbase
 
 [restbase:children]
-eqiad-restbase
+staging_eqiad_restbase
 
-[eqiad-restbase]
+[staging_eqiad_restbase]
 xenon.eqiad.wmnet
 praseodymium.eqiad.wmnet
 cerium.eqiad.wmnet

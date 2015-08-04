@@ -1,8 +1,14 @@
+[production:children]
+production_eqiad
+
 [eqiad:children]
-eqiad-restbase
+production_eqiad
+
+[production_eqiad:children]
+production_eqiad_restbase
 
 [restbase:children]
-eqiad-restbase
+production_eqiad_restbase
 
-[eqiad-restbase]
+[production_eqiad_restbase]
 restbase100[1:8].eqiad.wmnet
