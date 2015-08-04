@@ -16,14 +16,7 @@
   tasks:
     - include: tasks/deploy.yml
 
-    - name: update the restbase config
-      template: 
-        src: templates/config.yaml.j2
-        dest: /etc/restbase/config.yaml
-        owner: root 
-        group: restbase 
-        mode: '0640'
-      register: config
+    #- include: tasks/config.yml
 
     - include: tasks/restart.yml
       # Only restart if the code actually changed

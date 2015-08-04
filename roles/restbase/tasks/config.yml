@@ -1,0 +1,8 @@
+- name: update the restbase config
+  register: config
+  template: 
+    src: templates/config.yaml.j2
+    dest: /etc/restbase/config.yaml
+    owner: root 
+    group: restbase 
+    mode: '0640'
