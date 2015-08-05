@@ -1,0 +1,8 @@
+# Common labs settings for eqiad
+
+logstash_port: 12201
+logstash_host: "deployment-logstash2.deployment-prep.eqiad.wmflabs"
+parsoid_uri: http://deployment-parsoid05.deployment-prep.eqiad.wmflabs:8000
+graphoid_host_port: http://deployment-sca01.deployment-prep.eqiad.wmflabs:19000
+
+

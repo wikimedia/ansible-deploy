@@ -16,7 +16,7 @@
   tasks:
     - include: tasks/deploy.yml
 
-    #- include: tasks/config.yml
+    - include: tasks/config.yml
 
     - include: tasks/restart.yml
       # Only restart if the code actually changed
