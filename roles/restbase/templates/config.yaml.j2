@@ -127,7 +127,7 @@ templates:
             options:
               apiRequest:
                 method: post
-                uri: 'http://{domain}/w/api.php'
+                uri: '{{action_api_host_port}}/w/api.php'
                 headers:
                   host: '{$.request.params.domain}'
                 body: '{$.request.body}'
