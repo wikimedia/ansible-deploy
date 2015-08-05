@@ -1,6 +1,6 @@
 # This is where we parametrize the restbase role
 #restbase_version: origin/master
-restbase_version: ca30b69
+restbase_version: da605887c8
 #restbase_version: f95c9059e5
 
 
