@@ -11,4 +11,4 @@ production_eqiad_restbase
 production_eqiad_restbase
 
 [production_eqiad_restbase]
-restbase100[1:8].eqiad.wmnet
+restbase100[1:9].eqiad.wmnet
