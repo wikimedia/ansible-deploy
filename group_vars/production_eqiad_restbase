@@ -27,3 +27,4 @@ cassandra_user:
 cassandra_password:
 salt_key:
 
+restbase_config_template: config.yaml.j2

@@ -20,5 +20,6 @@
 
     - include: tasks/restart.yml
       # Only restart if the code actually changed
-      when: deploy.changed or config.changed
+      when: deploy.changed 
+        # or config.changed
 

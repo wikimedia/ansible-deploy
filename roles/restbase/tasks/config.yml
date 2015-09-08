@@ -1,7 +1,7 @@
 - name: update the restbase config
   register: config
   template: 
-    src: templates/config.yaml.j2
+    src: templates/{{restbase_config_template}}
     dest: /etc/restbase/config.yaml
     owner: root 
     group: restbase 

@@ -17,7 +17,7 @@
 
   - name: remove the old deploy checkout
     file:  path=/srv/deployment/restbase/deploy state=absent
-    when: repo_check.stdout != "0"
+    #when: repo_check.stdout != "0"
 
   - include: tasks/deploy.yml
 
