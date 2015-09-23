@@ -1,7 +1,6 @@
 # This is where we parametrize the restbase role
 #restbase_version: origin/master
-restbase_version: 7006f9fed7
-#restbase_version: f95c9059e5
+restbase_version: f65313ed
 
 
 # RESTBase config, very similar to hiera data in
