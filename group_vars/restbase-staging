@@ -4,7 +4,7 @@ restbase_version: origin/master
 
 # RESTBase config, very similar to hiera data in
 # https://github.com/wikimedia/operations-puppet/blob/production/hieradata/role/common/restbase.yaml
-cluster: restbase-staging
+cluster: restbase
 seeds:
     - cerium.eqiad.wmnet
     - praseodymium.eqiad.wmnet
