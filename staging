@@ -1,5 +1,6 @@
 [staging:children]
 staging_eqiad
+staging_codfw
 
 [eqiad:children]
 staging_eqiad
@@ -7,10 +8,19 @@ staging_eqiad
 [staging_eqiad:children]
 staging_eqiad_restbase
 
+[staging_codfw:children]
+staging_codfw_restbase
+
 [restbase:children]
 staging_eqiad_restbase
+staging_codfw_restbase
 
 [staging_eqiad_restbase]
 xenon.eqiad.wmnet
 praseodymium.eqiad.wmnet
 cerium.eqiad.wmnet
+
+[staging_codfw_restbase]
+restbase-test2001.codfw.wmnet
+restbase-test2002.codfw.wmnet
+restbase-test2003.codfw.wmnet

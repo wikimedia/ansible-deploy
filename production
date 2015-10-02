@@ -1,14 +1,25 @@
 [production:children]
 production_eqiad
+production_codfw
 
 [eqiad:children]
 production_eqiad
 
+[codfw:children]
+production_codfw
+
 [production_eqiad:children]
 production_eqiad_restbase
 
+[production_codfw:children]
+production_codfw_restbase
+
 [restbase:children]
 production_eqiad_restbase
+production_codfw_restbase
 
 [production_eqiad_restbase]
 restbase100[1:9].eqiad.wmnet
+
+[production_codfw_restbase]
+restbase200[1:6].codfw.wmnet
