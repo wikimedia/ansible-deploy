@@ -1,5 +1,5 @@
 ---
-- hosts: restbase
+- hosts: '{{target}}'
   # No need for dynamic host facts in basic deploys
   gather_facts: false
   # Stop if more than 10% of boxes fail

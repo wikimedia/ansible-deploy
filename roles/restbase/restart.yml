@@ -4,10 +4,10 @@
 
 # Execute with: ansible-playbook -i staging roles/restbase/restart.yml
 
-- hosts: restbase
+- hosts: '{{target}}'
+  max_fail_percentage: 10
   # No need for facts for basic deploys
   gather_facts: false
-  max_fail_percentage: 10
   sudo: yes
   serial: 1
 

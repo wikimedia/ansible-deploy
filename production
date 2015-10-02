@@ -1,25 +1,44 @@
 [production:children]
-production_eqiad
-production_codfw
+restbase-production
+aqs-production
 
-[eqiad:children]
-production_eqiad
-
-[codfw:children]
-production_codfw
-
-[production_eqiad:children]
-production_eqiad_restbase
-
-[production_codfw:children]
-production_codfw_restbase
-
+# By cluster
 [restbase:children]
-production_eqiad_restbase
-production_codfw_restbase
+restbase-production
 
-[production_eqiad_restbase]
+[aqs:children]
+aqs-production
+
+# (cluster, env) hierarchy
+#
+## RESTBase REST v1 API
+[restbase-production:children]
+restbase-production-eqiad
+restbase-production-codfw
+
+[restbase-production-eqiad]
 restbase100[1:9].eqiad.wmnet
 
-[production_codfw_restbase]
+[restbase-production-codfw]
 restbase200[1:6].codfw.wmnet
+
+## AQS
+[aqs-production:children]
+aqs-production-eqiad
+
+[aqs-production-eqiad]
+aqs100[1-3].eqiad.wmnet
+
+# By-DC hierarchy
+[eqiad:children]
+production-eqiad
+
+[codfw:children]
+production-codfw
+
+[production-eqiad:children]
+restbase-production-eqiad
+aqs-production-eqiad
+
+[production-codfw:children]
+restbase-production-codfw
