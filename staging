@@ -1,6 +1,10 @@
 [staging:children]
 staging_restbase
 
+# By cluster
+[restbase:children]
+staging_restbase
+
 # By (env, cluster)
 
 [staging_restbase:children]

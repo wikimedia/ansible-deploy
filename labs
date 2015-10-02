@@ -1,6 +1,10 @@
 [labs:children]
 labs_restbase
 
+# By cluster
+[restbase:children]
+labs_restbase
+
 # By (env, cluster)
 
 [labs_restbase:children]
