@@ -5,6 +5,8 @@ cluster: restbase
 restbase_version: origin/master
 #restbase_version: 
 
+restbase_repository: https://gerrit.wikimedia.org/r/mediawiki/services/aqs/deploy
+
 seeds:
     - aqs1001.eqiad.wmnet
     - aqs1002.eqiad.wmnet
