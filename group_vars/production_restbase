@@ -1,6 +1,8 @@
-# RESTBase config, very similar to hiera data in
-# https://github.com/wikimedia/operations-puppet/blob/production/hieradata/role/common/restbase.yaml
+# This is where we parametrize the restbase role for the 'restbase' cluster
+#restbase_version: origin/master
 cluster: restbase
+restbase_version: e42bf0fc
+
 seeds:
     - restbase1001.eqiad.wmnet
     - restbase1002.eqiad.wmnet
@@ -14,7 +16,6 @@ seeds:
 page_size: 250
 logging_level: warn
 
-cassandra_localDc: eqiad
 cassandra_defaultConsistency: localQuorum
 # Private; you'll need to change these.
 cassandra_user:
