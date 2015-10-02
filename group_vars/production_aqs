@@ -1,0 +1,22 @@
+# This is where we parametrize the restbase role for the 'restbase' cluster
+
+cluster: aqs
+
+restbase_version: origin/master
+#restbase_version: 
+
+seeds:
+    - aqs1001.eqiad.wmnet
+    - aqs1002.eqiad.wmnet
+    - aqs1003.eqiad.wmnet
+
+page_size: 250
+logging_level: warn
+
+cassandra_defaultConsistency: localQuorum
+# Private; you'll need to change these.
+cassandra_user:
+cassandra_password:
+salt_key:
+
+restbase_config_template: config.yaml.j2

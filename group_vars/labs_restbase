@@ -1,0 +1,21 @@
+# This is where we parametrize the restbase role
+restbase_version: origin/master
+#restbase_version: f95c9059e5
+
+
+cluster: restbase-labs
+seeds:
+    - deployment-restbase01.eqiad.wmflabs
+    - deployment-restbase02.eqiad.wmflabs
+
+restbase_page_size: 250
+restbase_logging_level: warn
+
+cassandra_localDc: datacenter1
+cassandra_defaultConsistency: localQuorum
+# Private, don't check in
+cassandra_user: cassandra
+cassandra_password: cassandra
+salt_key: secretkey
+
+restbase_config_template: config.labs.yaml.j2

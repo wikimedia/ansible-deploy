@@ -4,7 +4,7 @@
 
 # Execute with: ansible-playbook -i hosts restbase/deploy-staging.yml
 
-- hosts: restbase
+- hosts: '{{target}}'
   max_fail_percentage: 20
   sudo: yes
   serial: 1

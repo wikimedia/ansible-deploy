@@ -1,15 +1,19 @@
 [labs:children]
-labs_eqiad
+labs_restbase
+
+# By (env, cluster)
+
+[labs_restbase:children]
+labs_restbase_eqiad
+
+[labs_restbase_eqiad]
+deployment-restbase01.eqiad.wmflabs
+deployment-restbase02.eqiad.wmflabs
+
+# By DC
 
 [eqiad:children]
 labs_eqiad
 
 [labs_eqiad:children]
-labs_eqiad_restbase
-
-[restbase:children]
-labs_eqiad_restbase
-
-[labs_eqiad_restbase]
-deployment-restbase01.eqiad.wmflabs
-deployment-restbase02.eqiad.wmflabs
+labs_restbase_eqiad

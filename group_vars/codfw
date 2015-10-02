@@ -1,16 +1,17 @@
-# General eqiad production & staging settings
+# General codfw production & staging settings
 
-site: eqiad
+site: codfw
 
+# We still send stuff to eqiad for now..
 logstash_port: 12201
 logstash_host: logstash1001.eqiad.wmnet
 
 statsd_host: statsd.eqiad.wmnet
 statsd_port: 8125
 
-action_api_host_port: http://api.svc.eqiad.wmnet
+action_api_host_port: http://api.svc.codfw.wmnet
 
 parsoid_uri: http://parsoid.svc.eqiad.wmnet:8000
 graphoid_host_port: http://graphoid.svc.eqiad.wmnet:19000
 
-cassandra_localDc: eqiad
+cassandra_localDc: codfw
