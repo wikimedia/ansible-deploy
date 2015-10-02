@@ -1,35 +1,35 @@
 [staging:children]
-staging_restbase
+restbase-staging
 
 # By cluster
 [restbase:children]
-staging_restbase
+restbase-staging
 
-# By (env, cluster)
+# By (cluster, env)
 
-[staging_restbase:children]
-staging_restbase_eqiad
-staging_restbase_codfw
+[restbase-staging:children]
+restbase-staging-eqiad
+restbase-staging-codfw
 
-[staging_restbase_eqiad]
+[restbase-staging-eqiad]
 xenon.eqiad.wmnet
 praseodymium.eqiad.wmnet
 cerium.eqiad.wmnet
 
-[staging_restbase_codfw]
+[restbase-staging-codfw]
 restbase-test2001.codfw.wmnet
 restbase-test2002.codfw.wmnet
 restbase-test2003.codfw.wmnet
 
 # By DC
 [codfw:children]
-staging_codfw
+staging-codfw
 
 [eqiad:children]
-staging_eqiad
+staging-eqiad
 
-[staging_eqiad:children]
-staging_restbase_eqiad
+[staging-eqiad:children]
+restbase-staging-eqiad
 
-[staging_codfw:children]
-staging_restbase_codfw
+[staging-codfw:children]
+restbase-staging-codfw
