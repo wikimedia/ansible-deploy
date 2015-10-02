@@ -27,7 +27,7 @@ restbase200[1:6].codfw.wmnet
 aqs-production-eqiad
 
 [aqs-production-eqiad]
-aqs100[1-3].eqiad.wmnet
+aqs100[1:3].eqiad.wmnet
 
 # By-DC hierarchy
 [eqiad:children]
