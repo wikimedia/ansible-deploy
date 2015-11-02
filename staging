@@ -17,9 +17,12 @@ praseodymium.eqiad.wmnet
 cerium.eqiad.wmnet
 
 [restbase-staging-codfw]
-restbase-test2001.codfw.wmnet
-restbase-test2002.codfw.wmnet
-restbase-test2003.codfw.wmnet
+restbase-test2001-a.codfw.wmnet instance=a
+restbase-test2001-b.codfw.wmnet instance=b
+restbase-test2002-a.codfw.wmnet instance=a
+restbase-test2002-b.codfw.wmnet instance=b
+restbase-test2003-a.codfw.wmnet instance=a
+restbase-test2003-b.codfw.wmnet instance=b
 
 # By DC
 [codfw:children]

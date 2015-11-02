@@ -1,5 +1,14 @@
+
+# Legacy (one instance per host): Do restart when `instance` is not defined.
 - name: restart cassandra
   service: name=cassandra state=restarted
+  when: instance is undefined
+
+# Multi-instance restart: When `instance` is defined, append it to create the
+# derived (instance-specific) service name.
+- name: restart cassandra (instance-based)
+  service: name=cassandra{{ '-' ~ instance | default('') }} state=restarted
+  when: instance is defined
 
 - include: check.yml
 
