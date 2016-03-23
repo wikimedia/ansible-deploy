@@ -17,7 +17,7 @@ restbase-production-eqiad
 restbase-production-codfw
 
 [restbase-production-eqiad]
-restbase100[3:9].eqiad.wmnet
+restbase100[5:9].eqiad.wmnet
 restbase101[0:3].eqiad.wmnet
 
 [restbase-production-codfw]
