@@ -13,6 +13,6 @@
   tasks:
     - command: puppet agent -tv
       register: puppet_result
-      failed_when: "puppet_result.rc != 2 && puppet_result.rc != 0"
+      failed_when: "puppet_result.rc != 2 and puppet_result.rc != 0"
       changed_when: "puppet_result.rc == 2"
 
