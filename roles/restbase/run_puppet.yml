@@ -8,8 +8,11 @@
   sudo: yes
   # One at a time; could also use percentages like "10%"
   # See https://docs.ansible.com/playbooks_delegation.html
-  serial: 1
+  serial: 50%
 
   tasks:
     - command: puppet agent -tv
+      register: puppet_result
+      failed_when: "puppet_result.rc != 2 && puppet_result.rc != 0"
+      changed_when: "puppet_result.rc == 2"
 
