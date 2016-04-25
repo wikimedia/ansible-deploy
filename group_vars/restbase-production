@@ -1,6 +1,6 @@
 # This is where we parametrize the restbase role for the 'restbase' cluster
 cluster: restbase
-restbase_version: 7f69f86ee9
+restbase_version: c1d5193
 
 seeds:
     - restbase1001.eqiad.wmnet
