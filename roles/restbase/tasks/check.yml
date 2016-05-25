@@ -1,5 +1,2 @@
 - name: check port 7231
   wait_for: host={{ inventory_hostname }} port={{ restbase_port|default(7231)  }} state=started timeout=180
-
-- name: execute checker script
-  command: /usr/local/bin/check-restbase
