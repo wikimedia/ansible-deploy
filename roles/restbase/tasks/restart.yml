@@ -1,7 +1,14 @@
+- name: depool restbase
+  # TODO: supply the pool name to depool from, for now it
+  # works like this because restbase is the only pyball service
+  command: depool
+
 - name: restart restbase
   service: name=restbase state=restarted
 
 - include: check.yml
 
-#- name: wait 10s for LVS
-#  wait_for: timeout=10
+- name: repool back restbase
+  # TODO: supply the pool name to repool to, for now it
+  # works like this because restbase is the only pyball service
+  command: pool
