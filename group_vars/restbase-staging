@@ -21,3 +21,5 @@ cassandra_password: cassandra
 salt_key:
 
 restbase_config_template: config.yaml.j2
+
+use_service_checker: true
