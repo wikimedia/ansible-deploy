@@ -21,3 +21,4 @@ salt_key: secretkey
 restbase_config_template: config.labs.yaml.j2
 
 use_service_checker: false
+pool_restbase: false
