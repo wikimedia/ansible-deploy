@@ -22,6 +22,7 @@ restbase101[0:5].eqiad.wmnet
 
 [restbase-production-codfw]
 restbase200[1:9].codfw.wmnet
+restbase201[0:1].codfw.wmnet
 
 ## AQS
 [aqs-production:children]
