@@ -15,6 +15,9 @@ restbase-staging-codfw
 xenon-a.eqiad.wmnet instance=a
 praseodymium-a.eqiad.wmnet instance=a
 cerium-a.eqiad.wmnet instance=a
+restbase-dev1001.eqiad.wmnet
+restbase-dev1002.eqiad.wmnet
+restbase-dev1003.eqiad.wmnet
 
 [restbase-staging-codfw]
 restbase-test2001-a.codfw.wmnet instance=a
